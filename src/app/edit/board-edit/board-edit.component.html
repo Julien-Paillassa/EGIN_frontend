@@ -1,0 +1,36 @@
+<form [formGroup]="boardForm">
+
+    <label for="name">Name: </label>
+    <input id="name" type="text" formControlName="name"> 
+
+    <br><br>
+
+    <label for="brand">Brand: </label>
+    <input id="brand" type="text" formControlName="brand"> 
+
+    <br><br>
+
+    <label for="size">Size: </label>
+    <input id="size" type="text" formControlName="size"> 
+    
+    <br><br>
+
+    <label for="volume">Volume: </label>
+    <input id="volume" type="text" formControlName="volume"> 
+
+    <br><br>
+
+    <label for="description">Description: </label>
+    <textarea id="description" type="textarea" formControlName="description" cols="30" rows="10"></textarea>
+
+    <br><br>
+
+    <label for="dimension">Dimension: </label>
+    <input id="dimension" type="text" formControlName="dimension"> 
+  
+</form>
+
+<form [formGroup]="boardForm" (ngSubmit)="onSubmit()">
+
+<button type="submit" [disabled]="!boardForm.valid">Submit</button>
+

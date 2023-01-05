@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
   constructor(private boardService: BoardService) { }
 
   ngOnInit() {
-    this.boardService.apiGetBoard().subscribe((allBoards: any[]) => {
+    this.boardService.getAllBoards().subscribe((allBoards: any[]) => {
       this.allBoards = allBoards;
       console.log(allBoards)
     })

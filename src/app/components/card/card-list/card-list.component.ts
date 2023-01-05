@@ -15,7 +15,7 @@ export class CardListComponent implements OnInit {
   boards$: Observable<string[]>;
 
   constructor(private boardService: BoardService) {
-    this.boards$ = this.boardService.apiGetBoard();
+    this.boards$ = this.boardService.getAllBoards();
   }
 
   ngOnInit(): void {

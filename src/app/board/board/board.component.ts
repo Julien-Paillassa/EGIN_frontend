@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { BoardService } from '../../services/board.service';
 
 @Component({
   selector: 'app-board',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BoardComponent implements OnInit {
 
-  constructor() { }
+  @Input() board: any = []
 
-  ngOnInit(): void {
+  constructor(private boardService: BoardService, private route: ActivatedRoute) {
+  }
+
+  ngOnInit() {
+
+    //const id = this.route.snapshot.paramMap.get('id');
+
+    // this.boardService.apiGetBoardById(Number(id)).subscribe((board: any[]) => {
+    //   this.board = board
+    //   console.log(board)
+    // })
+
+    this.boardService.getBoardById(1).subscribe((board: any[]) => {
+      this.board = board
+      console.log(board)
+    })
   }
 
 }
