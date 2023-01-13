@@ -1,7 +1,6 @@
 
 import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { BoardService } from '../../../services/board.service';
 
 @Component({
   selector: 'app-card-list',
@@ -11,11 +10,9 @@ import { BoardService } from '../../../services/board.service';
 export class CardListComponent implements OnInit {
 
   @Input() boards: any;
+  @Input() spots: any;
 
-  boards$: Observable<string[]>;
-
-  constructor(private boardService: BoardService) {
-    this.boards$ = this.boardService.getAllBoards();
+  constructor() {
   }
 
   ngOnInit(): void {

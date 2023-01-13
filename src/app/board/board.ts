@@ -8,8 +8,13 @@ export interface Board {
 }
 
 export interface BoardInfo {
-    name: string;
     id: string;
+    name: string;
     createdAt: string;
+    brand: string,
+    size: string,
+    volume: string,
+    description: string,
+    dimension: string
 }
   

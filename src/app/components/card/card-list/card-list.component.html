@@ -1,4 +1,8 @@
-<div *ngIf="boards.length != 0" class="row" >
+<div *ngIf="boards" class="row" >
     <app-card [class]="'col-lg-4'" *ngFor="let board of boards" [board]="board"></app-card>
 </div>
+
+<div *ngIf="spots" class="row" >
+    <app-card [class]="'col-lg-4'" *ngFor="let spot of spots" [spot]="spot"></app-card>
+<div>
 
