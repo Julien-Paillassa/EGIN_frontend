@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'egin_frontend';
+
+  currentUser: string | null = '';
+
+  ngOnInit() {
+   this.currentUser = localStorage.getItem('currentUser')
+  }
+
+  
 }

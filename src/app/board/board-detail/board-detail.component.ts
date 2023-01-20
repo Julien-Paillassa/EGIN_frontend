@@ -27,6 +27,8 @@ export class BoardDetailComponent implements OnInit {
       this.board = data
       console.log(data)
     })
+
+    
   }
 
   delete(id: any) {

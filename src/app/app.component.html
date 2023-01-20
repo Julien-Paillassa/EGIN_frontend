@@ -3,7 +3,16 @@
       <button class="btn btn-dark mx-5" [routerLink]="['']">Home</button>
       <button class="btn btn-dark mx-5" [routerLink]="['/boards']">All Boards</button>
       <button class="btn btn-dark mx-5" [routerLink]="['/spots']">All Spots</button>
-      <button class="btn btn-dark mx-5" [routerLink]="['/login']">Login</button>
+      
   </div>
+  <div *ngIf="currentUser">
+    <button class="btn btn-dark mx-5" [routerLink]="['/profil']">Profil</button>
+    <button class="btn btn-dark mx-5" [routerLink]="['/logout']">LogOut</button>
+  </div>
+  <div *ngIf="!currentUser">
+    <button class="btn btn-dark mx-5" [routerLink]="['/login']">LogIn</button>
+  </div>
+  
+      
 </nav>
 <router-outlet></router-outlet>
