@@ -2,16 +2,26 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BoardDetailComponent } from './board/board-detail/board-detail.component';
 import { BoardListComponent } from './board/board-list/board-list.component';
-import { BoardEditComponent } from './edit/board-edit/board-edit.component';
-import { BoardFormComponent } from './form/board-form/board-form.component';
+import { BoardEditComponent } from './board/board-edit/board-edit.component';
+import { SpotEditComponent } from './spot/spot-edit/spot-edit.component';
+import { BoardFormComponent } from './board/board-form/board-form.component';
+import { SpotFormComponent } from './spot/spot-form/spot-form.component';
 import { HomeComponent } from './home/home.component';
+import { SpotDetailComponent } from './spot/spot-detail/spot-detail.component';
+import { SpotListComponent } from './spot/spot-list/spot-list.component';
+import { LoginComponent } from './user/login/login.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
+  { path: 'login', component: LoginComponent},
   { path: 'boards', component: BoardListComponent },
+  { path: 'boards/new', component: BoardFormComponent },
   { path: 'boards/:id', component: BoardDetailComponent },
-  { path: 'boardForm', component: BoardFormComponent },
   { path: 'boards/edit/:id', component: BoardEditComponent },
+  { path: 'spots', component: SpotListComponent },
+  { path: 'spots/new', component: SpotFormComponent },
+  { path: 'spots/:id', component: SpotDetailComponent },
+  { path: 'spots/edit/:id', component: SpotEditComponent },
   { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
 

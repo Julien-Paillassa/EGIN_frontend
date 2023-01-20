@@ -1,7 +1,8 @@
-import { Component, OnInit, EventEmitter, Output  } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BoardService } from '../../services/board.service';
 import { FormControl, FormGroup } from '@angular/forms';
-import { Board } from '../../board/board';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-board-form',
@@ -21,7 +22,11 @@ export class BoardFormComponent implements OnInit {
     dimension: new FormControl(''),
   });
 
-  constructor(private boardService: BoardService) { }
+  constructor(
+    private boardService: BoardService,
+    private toastr: ToastrService, 
+    private router: Router
+  ) { }
 
   ngOnInit() {
   }
@@ -31,5 +36,7 @@ export class BoardFormComponent implements OnInit {
     this.boardService.addBoard(this.board).subscribe((response: any) => {
       console.log(response); 
     });
+    this.toastr.success(`La board ${this.board.name} à bien été créée`, 'Création');
+    setTimeout(() => { this.router.navigate([`/boards`]) }, 400);
   }
 }

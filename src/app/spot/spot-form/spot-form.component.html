@@ -1,0 +1,26 @@
+<form [formGroup]="spotForm">
+
+    <label for="name">Name: </label>
+    <input id="name" type="text" formControlName="name"> 
+
+    <br><br>
+
+    <label for="coordinate">Coordinate: </label>
+    <input id="coordinate" type="text" formControlName="coordinate"> 
+
+    <br><br>
+
+    <label for="codePostal">Code Postal: </label>
+    <input id="codePostal" type="text" formControlName="codePostal"> 
+
+    <br><br>
+
+    <label for="description">Description: </label>
+    <textarea id="description" type="textarea" formControlName="description" cols="30" rows="10"></textarea>
+  
+</form>
+
+<form [formGroup]="spotForm" (ngSubmit)="onSubmit()">
+
+<button type="submit" [disabled]="!spotForm.valid">Submit</button>
+

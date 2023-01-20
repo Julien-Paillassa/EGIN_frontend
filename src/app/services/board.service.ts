@@ -24,10 +24,8 @@ export class BoardService {
     return this.httpClient.post<Board[]>(`${environment.apiUrl}/boards`, board);
   }
 
-  updateBoard(board: Board, id: Number): Observable<Board[]> {
-    console.log(board)
-    console.log(id)
-    return this.httpClient.put<Board[]>(`${environment.apiUrl}/boards/10`, board);
+  updateBoard(board: Board, id: any): Observable<Board[]> {
+    return this.httpClient.put<Board[]>(`${environment.apiUrl}/boards/${id}`, board);
   }
 
   deleteBoard(id: Number): Observable<any[]> {

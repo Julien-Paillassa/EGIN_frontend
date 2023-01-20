@@ -1,4 +1,4 @@
-<div *ngIf="board != null">
+<div *ngIf="board">
   <div class="card p-0 mb-lg-5" style="background: beige">
     <div class="card-body">
       <h3 class="card-title"><strong>{{board.name}}</strong></h3>
@@ -13,3 +13,18 @@
     </div>
   </div>
 </div>
+
+<div *ngIf="spot" class="row" >
+  <div class="card p-0 mb-lg-5" style="background: beige">
+    <div class="card-body">
+      <h3 class="card-title"><strong>{{spot.name}}</strong></h3>
+      <p>caractéristique :</p>
+      <ul>
+        <li class="card-text">{{spot.coordinate}}</li>
+          <li class="card-text">{{spot.code_postal}}</li>
+          <li class="card-text">{{spot.type}}</li>
+      </ul>
+      <button type="button" class="btn btn-info" routerLink="/spots/{{spot.id}}">voir</button>
+    </div>
+  </div>
+<div>
