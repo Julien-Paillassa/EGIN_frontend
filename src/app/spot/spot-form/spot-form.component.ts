@@ -3,6 +3,7 @@ import { SpotService } from '../../services/spot.service';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-spot-form',
@@ -23,7 +24,8 @@ export class SpotFormComponent implements OnInit {
   constructor(
     private spotService : SpotService,
     private toastr: ToastrService, 
-    private router: Router
+    private router: Router,
+    private location: Location 
   ) { }
 
   ngOnInit() {
@@ -35,7 +37,7 @@ export class SpotFormComponent implements OnInit {
       console.log(response); 
     });
     this.toastr.success(`Le spot ${this.spot.name} à bien été créée`, 'Création');
-    setTimeout(() => { this.router.navigate([`/spots`]) }, 400);
+    setTimeout(() => { this.location.back(); }, 400);
   }
 
 }

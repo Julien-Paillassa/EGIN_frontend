@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { RouterModule } from '@angular/router';
+import { loadStripe } from '@stripe/stripe-js';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -27,6 +28,13 @@ import { SpotFormComponent } from './spot/spot-form/spot-form.component';
 import { JwtInterceptor } from './services/jwt.interceptor';
 import { LoginComponent } from './user/login/login.component';
 import { LogoutComponent } from './user/logout/logout.component';
+import { ProfilComponent } from './user/profil/profil.component';
+import { JwtModule } from '@auth0/angular-jwt';
+import { PaymentComponent } from './payment/payment/payment.component';
+import { SuccessComponent } from './payment/success/success.component';
+import { CancelComponent } from './payment/cancel/cancel.component';
+import { CheckoutComponent } from './payment/checkout/checkout.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +53,13 @@ import { LogoutComponent } from './user/logout/logout.component';
     SpotEditComponent,
     SpotFormComponent,
     LoginComponent,
-    LogoutComponent
+    LogoutComponent,
+    ProfilComponent,
+    PaymentComponent,
+    SuccessComponent,
+    CancelComponent,
+    CheckoutComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -56,6 +70,11 @@ import { LogoutComponent } from './user/logout/logout.component';
     CommonModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(), // ToastrModule added
+    JwtModule.forRoot({
+      config: {
+        tokenGetter:  () => localStorage.getItem('jwt')
+      }
+    }),
   ],
   providers: [
     HttpClient,

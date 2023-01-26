@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { BoardService } from '../../services/board.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Component({
   selector: 'app-board-detail',
@@ -11,12 +12,14 @@ import { ToastrService } from 'ngx-toastr';
 export class BoardDetailComponent implements OnInit {
 
   @Input() board: any = []
+  isAdmin: boolean = false;
 
   constructor(
     private boardService: BoardService, 
     private route: ActivatedRoute,
     private toastr: ToastrService, 
-    private router: Router
+    private router: Router,
+    private jwtHelper: JwtHelperService
   ) { }
 
   ngOnInit() {
@@ -25,8 +28,18 @@ export class BoardDetailComponent implements OnInit {
 
     this.boardService.getBoardById(Number(id)).subscribe((data: any[]) => {
       this.board = data
-      console.log(data)
     })
+    if (localStorage.getItem('jwt') != null) {
+      const token = this.jwtHelper.decodeToken(localStorage.getItem('jwt') || '{}');
+      console.log(token)
+
+      if (token.roles.includes('ROLE_ADMIN')) {
+        this.isAdmin = true;
+      }
+    }
+
+
+    
   }
 
   delete(id: any) {

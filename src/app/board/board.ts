@@ -4,7 +4,9 @@ export interface Board {
     size: string,
     volume: string,
     description: string,
-    dimension: string
+    dimension: string,
+    price: number,
+    status: string
 }
 
 export interface BoardInfo {
@@ -15,6 +17,8 @@ export interface BoardInfo {
     size: string,
     volume: string,
     description: string,
-    dimension: string
+    dimension: string,
+    price: number,
+    status: string
 }
   

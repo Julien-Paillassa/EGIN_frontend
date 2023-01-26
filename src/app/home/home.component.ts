@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BoardService } from '../services/board.service';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Component({
   selector: 'app-home',
@@ -8,15 +9,21 @@ import { BoardService } from '../services/board.service';
 })
 export class HomeComponent implements OnInit {
 
-  allBoards: any[]= [];
+  currentUser: string | null = '';
 
-  constructor(private boardService: BoardService) { }
+  constructor(
+    private boardService: BoardService,
+    private jwtHelper: JwtHelperService
+  ) { }
 
   ngOnInit() {
-    this.boardService.getAllBoards().subscribe((allBoards: any[]) => {
-      this.allBoards = allBoards;
-      console.log(allBoards)
-    })
+    if (localStorage.getItem('jwt') != null) {
+      const token = this.jwtHelper.decodeToken(localStorage.getItem('jwt') || '{}');
+      //console.log(token)
+    }
+    
+    //console.log(localStorage.getItem('jwt'))
+    this.currentUser = localStorage.getItem('currentUser')
   }
 
 }

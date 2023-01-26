@@ -1,2 +1,7 @@
-<h1>Welcom on EGIN !</h1>
+<div *ngIf="currentUser">
+    <h1> Welcom {{currentUser}}</h1>
+</div>
+<div *ngIf="!currentUser">
+    <h1>Welcom on EGIN !</h1>
+</div>
 
