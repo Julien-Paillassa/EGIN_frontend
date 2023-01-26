@@ -10,9 +10,6 @@
         <li class="card-text">{{board.dimension}}</li>
         <li class="card-text">{{board.description}}</li>
       </ul>
-      <button type="button" class="btn btn-success" routerLink="/boards/edit/{{board.id}}">Editer</button>
-      <br><br>
-      <button type="button" class="btn btn-danger" (click)="delete(board.id)">Supprimer</button>
       <app-checkout [board]="board"></app-checkout>
     </div>
   </div>

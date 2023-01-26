@@ -3,6 +3,7 @@ import { BoardService } from '../../services/board.service';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-board-edit',
@@ -28,7 +29,8 @@ export class BoardEditComponent implements OnInit {
     private boardService: BoardService, 
     private route: ActivatedRoute, 
     private toastr: ToastrService, 
-    private router: Router
+    private router: Router,
+    private location: Location
   ) { }
 
   ngOnInit() {
@@ -46,7 +48,7 @@ export class BoardEditComponent implements OnInit {
           description: this.board.description,
           dimension: this.board.dimension,
         });
-      }, 400);
+      }, 500);
 
       
   }
@@ -57,7 +59,7 @@ export class BoardEditComponent implements OnInit {
       console.log(response);
     });
     this.toastr.success(`La board ${this.board.name} à bien été édité`, 'Edition');
-    setTimeout(() => { this.router.navigate([`/boards/${this.boardId}`]) }, 400);
+    setTimeout(() => { this.location.back(); }, 400);
 
   }
 }

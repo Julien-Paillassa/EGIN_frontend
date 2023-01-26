@@ -16,6 +16,7 @@ import { PaymentComponent } from './payment/payment/payment.component';
 import { CheckoutComponent } from './payment/checkout/checkout.component';
 import { SuccessComponent } from './payment/success/success.component';
 import { CancelComponent } from './payment/cancel/cancel.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -33,6 +34,7 @@ const routes: Routes = [
   { path: 'checkout', component: CheckoutComponent },
   { path: 'success', component: SuccessComponent },
   { path: 'cancel', component: CancelComponent },
+  { path: 'dashboard', component: DashboardComponent },
   { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
 

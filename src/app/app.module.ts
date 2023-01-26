@@ -34,6 +34,7 @@ import { PaymentComponent } from './payment/payment/payment.component';
 import { SuccessComponent } from './payment/success/success.component';
 import { CancelComponent } from './payment/cancel/cancel.component';
 import { CheckoutComponent } from './payment/checkout/checkout.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { CheckoutComponent } from './payment/checkout/checkout.component';
     PaymentComponent,
     SuccessComponent,
     CancelComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

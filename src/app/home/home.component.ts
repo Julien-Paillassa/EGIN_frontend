@@ -19,9 +19,8 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     if (localStorage.getItem('jwt') != null) {
       const token = this.jwtHelper.decodeToken(localStorage.getItem('jwt') || '{}');
-      console.log(token)
+      //console.log(token)
     }
-    
     
     //console.log(localStorage.getItem('jwt'))
     this.currentUser = localStorage.getItem('currentUser')
