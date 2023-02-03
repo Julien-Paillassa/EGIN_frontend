@@ -1,7 +1,22 @@
 <nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-menu is-active buttons">
-      <button class="button is-link" [routerLink]="['']">Home</button>
-      <button class="button is-link" [routerLink]="['/boards']">Boards</button>
+      <button class="btn btn-dark mx-5" [routerLink]="['']">Home</button>
+      <button class="btn btn-dark mx-5" [routerLink]="['/boards']">All Boards</button>
+      <button class="btn btn-dark mx-5" [routerLink]="['/spots']">All Spots</button>
+      
   </div>
+  <div *ngIf="isAdmin === true">
+    <button class="btn btn-dark mx-5" [routerLink]="['/dashboard']">DashBoard</button>
+  </div>
+  <p>{{currentUser}}</p>
+  <div *ngIf="currentUser">
+    <button class="btn btn-dark mx-5" [routerLink]="['/profil']">Profil</button>
+    <button class="btn btn-dark mx-5" [routerLink]="['/logout']">LogOut</button>
+  </div>
+  <div *ngIf="!currentUser">
+    <button class="btn btn-dark mx-5" [routerLink]="['/login']">LogIn</button>
+  </div>
+  
+      
 </nav>
 <router-outlet></router-outlet>

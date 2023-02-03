@@ -9,6 +9,7 @@ import { Component, EventEmitter, Input, Output, OnInit } from '@angular/core';
 export class CardComponent implements OnInit {
 
   @Input() board: any = '';
+  @Input() spot: any = '';
   @Output() selected = new EventEmitter<string>();
 
   constructor() { }

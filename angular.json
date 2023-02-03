@@ -23,6 +23,7 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -67,7 +68,8 @@
               "browserTarget": "egin_frontend:build:production"
             },
             "development": {
-              "browserTarget": "egin_frontend:build:development"
+              "browserTarget": "egin_frontend:build:development",
+              "proxyConfig": "proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"

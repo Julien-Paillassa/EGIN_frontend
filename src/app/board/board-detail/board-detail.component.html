@@ -1,0 +1,16 @@
+<div *ngIf="board != null">
+  <div class="card p-0 mb-lg-5" style="background: beige">
+    <div class="card-body">
+      <h3 class="card-title"><strong>{{board.name}}</strong></h3>
+      <p>caractéristique :</p>
+      <ul>
+        <li class="card-text">{{board.brand}}</li>
+        <li class="card-text">{{board.size}}</li>
+        <li class="card-text">{{board.volume}}</li>
+        <li class="card-text">{{board.dimension}}</li>
+        <li class="card-text">{{board.description}}</li>
+      </ul>
+      <app-checkout [board]="board"></app-checkout>
+    </div>
+  </div>
+</div>
