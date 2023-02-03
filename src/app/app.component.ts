@@ -1,6 +1,8 @@
 import { ThisReceiver } from '@angular/compiler';
 import { Component } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { UserService } from './services/user.service';
+import { User } from './user/user';
 
 @Component({
   selector: 'app-root',
@@ -10,11 +12,13 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 export class AppComponent {
   title = 'egin_frontend';
 
-  currentUser: string | null = '';
+  userInfo: User[] | null = [];
 
+  currentUser: string | null = ''
+ 
   isAdmin: boolean = false;
 
-  constructor (private jwtHelper: JwtHelperService) {
+  constructor (private jwtHelper: JwtHelperService, private userService: UserService) {
     
   }
 
@@ -26,10 +30,19 @@ export class AppComponent {
       if (token.roles.includes('ROLE_ADMIN')) {
         this.isAdmin = true;
       }
+
+      this.userService.getUserInfos(token.id).subscribe((data: User[]) => {
+        this.userInfo = data
+        localStorage.setItem('userInfo', JSON.stringify(this.userInfo));
+      })
+
+      this.currentUser = localStorage.getItem('currentUser') || '{}'
+      
+    } else {
+      this.userInfo = null
     }
 
-   this.currentUser = localStorage.getItem('currentUser')
-
+    
 
   }
 

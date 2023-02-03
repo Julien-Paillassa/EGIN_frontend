@@ -12,6 +12,8 @@ export class ProfilComponent implements OnInit {
 
   user: any = []
 
+  userInfos: any = []
+
   constructor(
     private userService: UserService,
     private route: ActivatedRoute,
@@ -20,7 +22,12 @@ export class ProfilComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    this.user = localStorage.getItem('currentUser')
+    this.user = 'Laird Hamilton' 
+
+    // this.userService.getUserInfos(this.user).subscribe((data: any[]) => {
+    //   this.userInfos = data
+    //   console.log(data)
+    // })
   }
 
 }

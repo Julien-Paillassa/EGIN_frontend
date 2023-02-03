@@ -8,6 +8,7 @@
   <div *ngIf="isAdmin === true">
     <button class="btn btn-dark mx-5" [routerLink]="['/dashboard']">DashBoard</button>
   </div>
+  <p>{{currentUser}}</p>
   <div *ngIf="currentUser">
     <button class="btn btn-dark mx-5" [routerLink]="['/profil']">Profil</button>
     <button class="btn btn-dark mx-5" [routerLink]="['/logout']">LogOut</button>
