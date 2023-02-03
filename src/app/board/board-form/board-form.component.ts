@@ -3,7 +3,7 @@ import { BoardService } from '../../services/board.service';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { Location } from '@angular/common';
+import { formatCurrency, Location } from '@angular/common';
 
 @Component({
   selector: 'app-board-form',
@@ -21,6 +21,8 @@ export class BoardFormComponent implements OnInit {
     volume: new FormControl(''),
     description: new FormControl(''),
     dimension: new FormControl(''),
+    price: new FormControl(''),
+    status: new FormControl('disponible')
   });
 
   constructor(

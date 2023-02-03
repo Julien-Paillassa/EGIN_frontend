@@ -40,7 +40,7 @@ export class DashboardComponent implements OnInit {
       console.log(data);
     });
     this.toastr.success(`La board à bien été supprimé`, 'Suppression');
-    setTimeout(() => { this.location.back(); }, 400);
+    setTimeout(() => { this.router.navigate([`/dashboard`]) }, 400);
   }
 
   deleteSpot(id: any) {
